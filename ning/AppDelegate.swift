@@ -20,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var transaction: PaymentTransaction?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = UIColor.theme
+            appearance.shadowColor = UIColor.theme
+            appearance.titleTextAttributes =  [
+                NSAttributedString.Key.foregroundColor: UIColor.white
+            ]
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        } else {
+            // Fallback on earlier versions
+        }
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
