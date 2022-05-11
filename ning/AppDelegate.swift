@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func setupLayout() {
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = HomeTabController()
+        window?.rootViewController = NingNaviController(rootViewController: HomeTabController())
         window?.makeKeyAndVisible()
     }
     
